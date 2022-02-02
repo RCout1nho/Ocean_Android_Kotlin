@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.google.android.material.textfield.TextInputEditText
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,11 +13,11 @@ class MainActivity : AppCompatActivity() {
 
         val button = findViewById<Button>(R.id.button)
         val textView = findViewById<TextView>(R.id.textView)
-        val textInput = findViewById<EditText>(R.id.editTextTextPersonName)
+        val textInput = findViewById<EditText>(R.id.etPersonName)
 
         button.setOnClickListener{
-            if(textInput.text.isNotEmpty()){
-                textView.text = textInput.text
+            if(textInput.text.isNotBlank()){
+                textView.text = textInput.text.toString()
             }else{
                 textInput.error = "Insira o texto"
             }
